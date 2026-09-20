@@ -1,0 +1,33 @@
+name: Checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      SDL_VIDEODRIVER: dummy
+      SDL_AUDIODRIVER: dummy
+      TYPESAFE_LOG_LEVEL: "off"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          version: "0.11.14"
+          enable-cache: true
+      - name: Install Python and locked dependencies
+        run: |
+          uv python install
+          uv sync --locked --extra atari --extra recording
+      - name: Lint and format
+        run: |
+          uv run --locked --no-env-file ruff check .
+          uv run --locked --no-env-file ruff format --check .
+      - name: Test without live API calls
+        run: uv run --locked --no-env-file --extra atari --extra recording python -m pytest -q
