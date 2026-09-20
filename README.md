@@ -1,13 +1,15 @@
 # Jev + Gymnasium
 
+<p align="center">
+  <img src="media/jev-atari-showcase-no-header.gif" alt="Jev playing Pong, Breakout, and Ms. Pac-Man with recorded action probabilities">
+</p>
+
 Evaluate [TypeSafe Jev](https://docs.typesafe.ai/introduction) as a policy in
 Gymnasium and Atari environments. Game-specific adapters convert observations
 into structured JSON; Jev selects a legal action through a single Choice question.
 
 This project evaluates a fixed model. It records rewards and decisions without
 training or updating model weights. A seeded random policy provides a local baseline.
-
-![Jev playing Pong, Breakout, and Ms. Pac-Man with recorded action probabilities](media/jev-atari-showcase-no-header.gif)
 
 Three games, one shared action-selection question. Joysticks and probability bars
 show Jev's recorded decisions at 2× game speed. See [recording details](media/README.md)
