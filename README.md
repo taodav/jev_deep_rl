@@ -7,10 +7,11 @@ into structured JSON; Jev selects a legal action through a single Choice questio
 This project evaluates a fixed model. It records rewards and decisions without
 training or updating model weights. A seeded random policy provides a local baseline.
 
-![Jev playing Pong, Breakout, and Ms. Pac-Man side by side](media/jev-atari-2x.gif)
+![Jev playing Pong, Breakout, and Ms. Pac-Man with recorded action probabilities](media/jev-atari-showcase-no-header.gif)
 
-Pong, Breakout, and Ms. Pac-Man using RAM observations, shown at 2× game speed.
-See [recording details](media/README.md) for the source runs.
+Three games, one shared action-selection question. Joysticks and probability bars
+show Jev's recorded decisions at 2× game speed. See [recording details](media/README.md)
+for the source runs, rendering command, and smaller gameplay-only GIF.
 
 ```text
 Environment → structured state → Jev Choice → legal action → environment
@@ -51,7 +52,7 @@ uv run --locked --no-env-file --extra recording npy_to_gif.py \
 The project uses Python 3.14 and a committed `uv.lock`. Atari runs through
 [Arcade Learning Environment](https://ale.farama.org/getting-started/). No ROM
 files or credentials are included in this repository. Raw experiment recordings
-stay local; `media/` contains a downsampled demonstration GIF.
+stay local; `media/` contains selected demonstration GIFs and a showcase preview.
 CartPole can run without the Atari extra:
 
 ```bash
