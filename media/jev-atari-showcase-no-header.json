@@ -1,0 +1,39 @@
+{
+  "output": "media/jev-atari-showcase-no-header.gif",
+  "dimensions": [
+    1200,
+    768
+  ],
+  "header": false,
+  "sampled_frames": 465,
+  "playback_duration_s": 30.96,
+  "speed": 2,
+  "fps": 15,
+  "game_duration_s": 61.92,
+  "bytes": 2542431,
+  "preview_game_time_s": 16,
+  "decision_alignment": "frame[i] and state[i] feed decision[i]; frame[i+1] is the outcome",
+  "sources": [
+    {
+      "path": "runs/jev-2000-fs2/pong-ram-jev-trial-2000.npy",
+      "environment": "ALE/Pong-v5",
+      "frames": 2001,
+      "decisions": 2000,
+      "frameskip": 2
+    },
+    {
+      "path": "runs/jev-10000-fs2-breakout-mspacman/breakout-ram-jev-trial-10000.npy",
+      "environment": "ALE/Breakout-v5",
+      "frames": 2444,
+      "decisions": 2443,
+      "frameskip": 2
+    },
+    {
+      "path": "runs/jev-10000-fs2-breakout-mspacman/mspacman-ram-jev-trial-10000.npy",
+      "environment": "ALE/MsPacman-v5",
+      "frames": 1858,
+      "decisions": 1857,
+      "frameskip": 2
+    }
+  ]
+}
